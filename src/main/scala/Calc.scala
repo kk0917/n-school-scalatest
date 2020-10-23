@@ -1,8 +1,11 @@
 class Calc {
 
-  /** 整数の配列を取得し、それらを出しあわせた整数を返す
+  /** fetch Integer's array, and return the Integer sum them all.
    *
-   * Intの最大を上回った際にはオーバーフローする
+   * Overflow occure when sum them all is over Integer.MAX_VALUE.
+   *
+   * @param seq Integer's array
+   * @return an Integer value sum all Integers into the array.
    */
   def sum(seq: Seq[Int]): Int = seq.sum
 
