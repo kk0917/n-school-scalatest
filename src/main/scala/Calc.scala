@@ -1,6 +1,6 @@
 class Calc {
 
-  /** fetch Integer's array, and return the Integer sum them all.
+  /** Get Integer's array, and return the Integer sum them all.
    *
    * Overflow occure when sum them all is over Integer.MAX_VALUE.
    *
@@ -9,16 +9,23 @@ class Calc {
    */
   def sum(seq: Seq[Int]): Int = seq.sum
 
-  /** 整数を2つ受け取り、分子を分母で割った浮動小数点の値を返す
+  /** Receive two Integers, and return float values Divided the numerator by the denominator
    *
-   * 0でわろうとした際には実行時例外が投げられる
+   * @param numerator   Number to divide
+   * @param denominator Number to be divided
+   *
+   * @return Float value, or Exception is thrown when trying to divide with 0
    */
   def div(numerator: Int, denominator: Int): Double = {
     if (denominator == 0) throw new ArithmeticException("/ by zero")
     numerator.toDouble / denominator.toDouble
   }
 
-  /** 整数値を1つ受け取り、その値が素数であるかどうかの真偽値を返す */
+  /** Receive one Integer value, and return boolean value whether it is Integer type or not
+   *
+   * @param n Integer value
+   * @return Boolean value,
+   */
   def isPrime(n: Int): Boolean = {
     if (n < 2) false else !((2 to Math.sqrt(n).toInt) exists(n % _ == 0))
   }
