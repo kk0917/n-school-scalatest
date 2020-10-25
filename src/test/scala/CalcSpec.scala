@@ -1,8 +1,8 @@
-import org.scalatest._
-import org.scalatest.concurrent.TimeLimits._
+import org.scalatest.{FlatSpec, DiagrammedAssertions}
+import org.scalatest.concurrent.TimeLimits.failAfter
 import org.scalatest.mockito.MockitoSugar
 import org.scalatest.time.SpanSugar._
-import org.mockito.Mockito._
+import org.mockito.Mockito.when
 
 class CalcSpec extends FlatSpec with DiagrammedAssertions with MockitoSugar {
   val calc = new Calc
