@@ -1,8 +1,10 @@
 import org.scalatest._
 import org.scalatest.concurrent.TimeLimits._
+import org.scalatest.mockito.MockitoSugar
 import org.scalatest.time.SpanSugar._
+import org.mockito.Mockito._
 
-class CalcSpec extends FlatSpec with DiagrammedAssertions {
+class CalcSpec extends FlatSpec with DiagrammedAssertions with MockitoSugar {
   val calc = new Calc
 
   "Calc.sum function" should "fetch integers array, and can return sum them all." in {
@@ -37,6 +39,12 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
     failAfter(1000 millis) {
         assert(calc.isPrime(9999991))
     }
+  }
+
+  "Calc Mock's object" should "Be able to camouflage behaviours" in {
+    val mockCalc = mock[Calc]
+    when(mockCalc.sum(Seq(3,4,5))).thenReturn(12)
+    assert(mockCalc.sum(Seq(3,4,5)) === 12)
   }
 
   // TODO: How to output asserts value?
