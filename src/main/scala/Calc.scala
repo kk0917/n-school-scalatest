@@ -1,4 +1,10 @@
 class Calc {
+  /** Test grammar with BDD
+   *
+   * "対象" should "振る舞い" {
+   *   // assert を利用したテスト内容
+   * }
+   */
 
   /** Get Integer's array, and return the Integer sum them all.
    *
