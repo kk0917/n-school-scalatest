@@ -34,9 +34,9 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions {
   }
 
   it should "Be able to process judging prime number under 1000 thousand value within 1 seconds." in {
-    concurrent.TimeLimits.failAfter(1000 millis) {
+    failAfter(1000 millis) {
         assert(calc.isPrime(9999991))
-      }
+    }
   }
 
   // TODO: How to output asserts value?
