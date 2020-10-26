@@ -1,4 +1,4 @@
-import org.scalatest.{FlatSpec, DiagrammedAssertions}
+import org.scalatest.{DiagrammedAssertions, FlatSpec}
 import org.scalatest.concurrent.TimeLimits.failAfter
 import org.scalatest.mockito.MockitoSugar
 import org.scalatest.time.SpanSugar._
@@ -8,10 +8,10 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with MockitoSugar {
   val calc = new Calc
 
   "Calc.sum function" should "fetch integers array, and can return sum them all." in {
-    assert(calc.sum(Seq(1,2,3)) === 6) // true
-    assert(calc.sum(Seq(0)) === 0)     // true
-    assert(calc.sum(Seq(-1,1)) === 0)  // true
-//  assert(calc.sum(Seq()) === 9999)   // false
+    assert(calc.sum(Seq(1, 2, 3)) === 6) // true
+    assert(calc.sum(Seq(0)) === 0)       // true
+    assert(calc.sum(Seq(-1, 1)) === 0)   // true
+//  assert(calc.sum(Seq()) === 9999)     // false
   }
 
   it should "Overflow occure when sum them all is over Integer.MAX_VALUE." in {
@@ -37,14 +37,14 @@ class CalcSpec extends FlatSpec with DiagrammedAssertions with MockitoSugar {
 
   it should "Be able to process judging prime number under 1000 thousand value within 1 seconds." in {
     failAfter(1000 millis) {
-        assert(calc.isPrime(9999991))
+      assert(calc.isPrime(9999991))
     }
   }
 
   "Calc Mock's object" should "Be able to camouflage behaviours" in {
     val mockCalc = mock[Calc]
-    when(mockCalc.sum(Seq(3,4,5))).thenReturn(12)
-    assert(mockCalc.sum(Seq(3,4,5)) === 12)
+    when(mockCalc.sum(Seq(3, 4, 5))).thenReturn(12)
+    assert(mockCalc.sum(Seq(3, 4, 5)) === 12)
   }
 
   /** Run Coverage Test Report - scoverage
